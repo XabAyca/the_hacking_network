@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import Home from './pages/Home';
+import Log from './pages/Log';
+import NotFound from './pages/NotFound';
+import Register from './pages/Register';
+import './styles/index.scss'
 
-function App() {
+const App = () => {
+  const register = useSelector((state) => state.register.register)
+  
+  const isAuth = () => {
+          console.log(register);
+    return (
+
+      register ? true : false
+    )
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch>
+      <Route exact path="/" component={Home}/>
+      <Route exact path="/register" >
+        {isAuth()? <Redirect to="/"/> : <Register/>}
+      </Route>
+      <Route exact path="/login">
+        {isAuth()? <Redirect to="/"/> : <Log/>}
+      </Route>
+      <Route path="/" component={NotFound}/>
+    </Switch>
   );
-}
+};
 
 export default App;

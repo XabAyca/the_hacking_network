@@ -1,0 +1,22 @@
+.log{
+  padding: 10px 50px;
+  
+  .form{
+    margin-top:100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:var(--primary-color);
+
+    h2{
+      font-size: 2rem;
+      color: var(--secondary-color);
+    }
+
+    small{
+      font-size: 0.7rem;
+      
+    }
+  }
+}

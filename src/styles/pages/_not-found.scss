@@ -1,0 +1,51 @@
+.not-found{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding:50px;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+
+  h1{
+    font-size:6rem;
+  }
+  h2{
+    font-size: 4rem;
+  }
+
+  .home-page-btn{
+    color: var(--primary-color);
+    background-color: var(--third-color);
+    padding: 20px 0;
+    text-align: center;
+    margin:50px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    position: relative;
+    transition: all 500ms;
+    width: 300px;
+
+    &:hover{
+      letter-spacing: 4px;
+      font-weight: 900;
+    }
+
+    &:after,&:before{
+      content:'';
+      position: absolute;
+      inset: 0;
+      z-index:-1;
+      transition: all 500ms;
+    }
+    &:hover:after{
+      inset:-3px;
+      background: linear-gradient(30deg,var(--primary-color),var(--background-color),var(--background-color),var(--third-color));
+    }
+    &:hover:before{
+      inset:-3px;
+      filter:blur(10px);
+      background: linear-gradient(30deg,var(--primary-color),var(--background-color),var(--background-color),var(--third-color));
+    }
+  }
+}

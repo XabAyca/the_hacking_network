@@ -1,0 +1,62 @@
+.posts-auth{
+  margin-top:25px;
+  hr{
+    background-color: var(--third-color);
+    height: 2px;
+    width: 50%;
+    margin:0 auto;
+
+  }
+  .post-visit{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin: 15px 0;
+
+
+
+    .date{
+        font-size: 1rem;
+        color: var(--third-color);
+        font-style: italic;
+    }
+
+    .post-title{
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+
+      i{
+        font-size: 3rem;
+        color:var(--third-color);
+        margin-right: 25px;
+      }
+      p{
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      .username{
+        color:var(--third-color);
+        display: inline-block;
+        width:150px;
+        cursor: pointer;
+      }
+    }
+    .post-delete{
+      width:50px;
+      height: 25px;
+      cursor: pointer;
+      background-color: transparent;
+      border: 1px solid var(--third-color);
+      color:var(--third-color);
+      margin-top: 5px;
+      transition:all 500ms;
+      &:hover{
+        color:$danger;
+        border-color: $danger;
+      }
+    }
+  }
+}

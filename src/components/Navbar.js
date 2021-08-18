@@ -1,18 +1,18 @@
+import Cookies from 'js-cookie';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { logout } from '../redux/api/fetch';
 
 const Navbar = () => {
-  const register = useSelector(((state) => state.register.register));
   const dispatch = useDispatch()
 
-  const isAuth = () => {
-    return (
-      register ? true : false
-    )
+	const isAuth = () => {
+		return (
+			Cookies.get('token') === undefined ? false : true
+		);
   };
-  
+ 
 
   return (
     <div className='navbar'>
@@ -24,16 +24,15 @@ const Navbar = () => {
         <NavLink to="/" className='navbar-link' activeClassName='navber-link-active'>
           <li>Home</li>
         </NavLink>
-        <NavLink to="" className='navbar-link' activeClassName='navber-link-active'>
-          <li>post</li>
-        </NavLink>
-        <NavLink to="" className='navbar-link' activeClassName='navber-link-active'>
-          <li>user</li>
-        </NavLink>
         {isAuth() ?
-          <NavLink to="" className='navbar-link' activeClassName='navber-link-active'>
-            <li onClick={() => dispatch(logout())}>Disconnect</li>
-          </NavLink>
+          <>
+            <NavLink to="/profile" className='navbar-link' activeClassName='navber-link-active'>
+              <li>My Profile</li>
+            </NavLink>
+            <NavLink to="" className='navbar-link' activeClassName='navber-link-active'>
+              <li onClick={() => dispatch(logout())}>Disconnect</li>
+            </NavLink>
+          </>
           :
           <>
             <NavLink to="/register" className='navbar-link' activeClassName='navber-link-active'>

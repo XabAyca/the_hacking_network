@@ -29,12 +29,13 @@
       margin:0 10px;
       color: var(--primary-color);
       cursor: pointer;
-      width: 100px;
+      width: 150px;
       text-align: center;
       transition:all 500ms;
       position: relative;
       overflow: hidden;
       z-index: 10;
+      text-transform: uppercase;
 
       &:before{
         content:'';
@@ -53,7 +54,7 @@
 
         &:before{
           width: 100%;
-          transform:translate(50px)skew(-25deg);
+          transform:translate(75px)skew(-25deg);
           opacity: 0.5;
           z-index: -9;
         }

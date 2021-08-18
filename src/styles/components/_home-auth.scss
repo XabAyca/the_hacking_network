@@ -1,0 +1,58 @@
+.home-auth{
+  margin: 50px 100px;
+
+  .post-submit-btn{
+    width:200px;
+    height: 40px;
+    text-align: center;
+    color: var(--primary-color);
+    background-color: var(--third-color);
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 20px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:before{
+      content:'';
+      width: 0%;
+      height: 100%;
+      position: absolute;
+      background-color: var(--secondary-color);
+      top:0;
+      right: 0;
+      transition: all 400ms;
+    }
+    &:hover:before{
+      width: 100%;
+      opacity: 0.4;
+      transform: skew(25deg) translate(50%);
+    }
+  }
+
+  .input-home{
+    width: 50%;
+    color:var(--primary-color);
+    font-size: 1.2rem;
+    border-bottom: 2px solid var(--primary-color);
+    &::placeholder{
+      color:var(--third-color);
+    }
+    }
+    h2{
+      font-size: 2rem;
+      color: var(--primary-color);
+      margin-bottom: 25px;
+    }
+
+    h3{
+      margin-top: 75px;
+      color:var(--secondary-color)
+    }
+
+    p{
+      color: var(--secondary-color);
+    }
+}

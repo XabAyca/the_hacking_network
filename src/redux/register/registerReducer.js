@@ -1,10 +1,9 @@
-import Cookies from "js-cookie"
 import { FETCH_REGISTER_FAILURE, FETCH_REGISTER_REQUEST, FETCH_REGISTER_SUCCESS, FETCH_REGISTER_UNREGISTER } from "./registerTypes"
 
 const initialState = {
   loading: false,
   error: '',
-  register:Cookies.get('token')
+  register:''
 }
 
 export const registerReducer = (state = initialState, { type, error , register }) => {
@@ -20,8 +19,7 @@ export const registerReducer = (state = initialState, { type, error , register }
       return { ...state, loading: false, error:error }
     
     case FETCH_REGISTER_UNREGISTER:
-      Cookies.remove('token')
-      return { ...state, register:Cookies.get('token'),error:"" }
+      return { ...state, register:'',error:"" }
 
   default:
     return state

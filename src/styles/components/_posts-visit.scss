@@ -1,0 +1,41 @@
+.posts-visit{
+  margin-top:25px;
+  hr{
+    background-color: var(--third-color);
+    height: 2px;
+    width: 50%;
+    margin:0 auto;
+
+  }
+  .post-visit{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin: 15px 0;
+
+    .date{
+        font-size: 1rem;
+        color: var(--third-color);
+        font-style: italic;
+    }
+
+    .post-title{
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+
+      i{
+        font-size: 3rem;
+        color:var(--third-color);
+        margin-right: 25px;
+      }
+      p{
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      
+    }
+  }
+}

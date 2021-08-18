@@ -13,15 +13,7 @@ const Profile = () => {
   const dispatch = useDispatch();
   let history = useHistory();
 
-  const getUser = () => {
-    return (
-      Cookies.get('token') !== undefined ? dispatch(profileFetch()) : null
-    )
-  };
-  
-  useEffect(() => {
-    getUser()
-  },[])
+
 
   const updateProfile = (e) => {
     e.preventDefault();
@@ -32,6 +24,8 @@ const Profile = () => {
     setTimeout(() => {
       history.push("/");
     }, 1000)
+    setUsername("");
+    setDescription("");
   };
 
   return (

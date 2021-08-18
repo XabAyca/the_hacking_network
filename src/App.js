@@ -1,4 +1,5 @@
-import React from 'react';
+import Cookies from 'js-cookie';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
@@ -7,7 +8,7 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import User from './pages/User';
-import { postsFetch } from './redux/api/fetch';
+import { postsFetch, profileFetch } from './redux/api/fetch';
 import './styles/index.scss'
 
 const App = () => {
@@ -35,6 +36,19 @@ const App = () => {
     dispatch(postsFetch())
   }
   getPosts()
+
+  const getUser = () => {
+    return (
+      isAuth() ? dispatch(profileFetch()) : null
+    )
+  };
+
+  useEffect(() => {
+    dispatch(profileFetch())
+  },[])  
+
+  getUser()
+
   
   return (
     <Switch>

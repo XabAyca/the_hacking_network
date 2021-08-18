@@ -38,7 +38,8 @@ const PostsAuth = () => {
         posts && posts.map((post) => {
           return (
             <div key={post.id}>
-              <div  className='post-visit'>
+              <div className='post-auth'>
+                <span className='like'>{post.like}&nbsp;<i class="far fa-thumbs-up"></i></span>
                 <div className='post-title'>
                   <i className="fab fa-hackerrank"></i>
                   <p className='.post-text'><span className='username' onClick={() =>goToUser(post.user.id,post.user.username) }>{post.user.username} : </span>{post.text}</p>

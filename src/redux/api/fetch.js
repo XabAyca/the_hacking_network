@@ -4,7 +4,7 @@ import { fetchDeletePostFailure, fetchDeletePostRequest } from "../deletePost/de
 import { fetchGetUserPostsFailure, fetchGetUserPostsRequest, fetchGetUserPostsSuccess } from "../getUserPosts/getUserPostsActions";
 import { fetchLoginFailure, fetchLoginLogout, fetchLoginRequest, fetchLoginSuccess } from "../login/loginActions";
 import { fetchPostsFailure, fetchPostsRequest, fetchPostsSuccess } from "../posts/postsActions";
-import { fetchProfileFailure, fetchProfileRequest, fetchProfileSuccess } from "../profile/profileActions";
+import { fetchProfileDelete, fetchProfileFailure, fetchProfileRequest, fetchProfileSuccess } from "../profile/profileActions";
 import { fetchRegisterFailure, fetchRegisterRequest, fetchRegisterSuccess, fetchRegisterUnregister } from "../register/registerActions"
 import { fetchProfileUpdateFailure, fetchProfileUpdateRequest, fetchProfileUpdateSuccess } from "../updateProfile/updateProfileActions";
 import { fetchUserProfileFailure, fetchUserProfileRequest, fetchUserProfileSuccess} from "../userProfile/userProfileActions";
@@ -42,6 +42,7 @@ export const logout = () => {
     Cookies.remove('token');
     dispatch(fetchRegisterUnregister())
     dispatch(fetchLoginLogout())
+    dispatch(fetchProfileDelete())
   }
 };
 

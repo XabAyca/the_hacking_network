@@ -1,5 +1,6 @@
 .posts-auth{
   margin-top:25px;
+  
   hr{
     background-color: var(--third-color);
     height: 2px;
@@ -7,12 +8,24 @@
     margin:0 auto;
 
   }
-  .post-visit{
+
+
+  .post-auth{
     display: flex;
     flex-direction: row;
     width: 100%;
     justify-content: space-between;
     margin: 15px 0;
+    position:relative;
+
+      .like{
+    position:absolute;
+    top:20%;
+    left:80%;
+    font-size: 1.5rem;
+    color:var(--secondary-color);
+    cursor: pointer;
+  }
 
 
 

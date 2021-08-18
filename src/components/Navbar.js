@@ -21,24 +21,24 @@ const Navbar = () => {
         <h1>T.H.Network &lt;/&gt;</h1>
       </div>
       <ul>
-        <NavLink to="/" className='navbar-link' activeClassName='navber-link-active'>
+        <NavLink to="/" className='navbar-link' activeClassName='navbar-link-active'>
           <li>Home</li>
         </NavLink>
         {isAuth() ?
           <>
-            <NavLink to="/profile" className='navbar-link' activeClassName='navber-link-active'>
+            <NavLink to="/profile" className='navbar-link' activeClassName='navbar-link-active'>
               <li>My Profile</li>
             </NavLink>
-            <NavLink to="" className='navbar-link' activeClassName='navber-link-active'>
+            <NavLink to="" className='navbar-link' activeClassName='navbar-link-active'>
               <li onClick={() => dispatch(logout())}>Disconnect</li>
             </NavLink>
           </>
           :
           <>
-            <NavLink to="/register" className='navbar-link' activeClassName='navber-link-active'>
+            <NavLink to="/register" className='navbar-link' activeClassName='navbar-link-active'>
               <li>Register</li>
             </NavLink>
-            <NavLink to="/login" className='navbar-link' activeClassName='navber-link-active'>
+            <NavLink to="/login" className='navbar-link' activeClassName='navbar-link-active'>
               <li>login</li>
             </NavLink>
           </>

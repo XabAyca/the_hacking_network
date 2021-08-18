@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../components/Navbar';
-import { updateProfileFetch } from '../redux/api/fetch';
+import { profileFetch, updateProfileFetch } from '../redux/api/fetch';
 import { useHistory } from "react-router-dom";
+import Cookies from 'js-cookie';
 
 const Profile = () => {
  
@@ -11,15 +12,27 @@ const Profile = () => {
   const [description, setDescription] = useState(profile.description || "");
   const dispatch = useDispatch();
   let history = useHistory();
+
+  const getUser = () => {
+    return (
+      Cookies.get('token') !== undefined ? dispatch(profileFetch()) : null
+    )
+  };
   
+  useEffect(() => {
+    getUser()
+  },[])
 
   const updateProfile = (e) => {
     e.preventDefault();
     dispatch(updateProfileFetch(username, description))
     setTimeout(() => {
+      dispatch(profileFetch())
+    },100)
+    setTimeout(() => {
       history.push("/");
-    },1000)
-  }
+    }, 1000)
+  };
 
   return (
     <main className='profile'>

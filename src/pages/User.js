@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -10,10 +10,13 @@ const User = () => {
   const userProfile = useSelector((state)=>state.userProfile.userProfile)
   const dispatch = useDispatch()
 
-  const getUserProfile = () => {
-    dispatch(userProfileFetch(userId))
-  }
-  getUserProfile()
+  useEffect(() => {
+    const getUserProfile = () => {
+      dispatch(userProfileFetch(userId))
+    }
+    getUserProfile()
+  }, []);
+  
   
     
   return (

@@ -1,7 +1,7 @@
 
 import Cookies from 'js-cookie';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
 import Log from './pages/Log';
@@ -14,13 +14,15 @@ import './styles/index.scss'
 
 const App = () => {
   const dispatch = useDispatch()
+  const register = useSelector((state) => state.register.register);
+  const login = useSelector((state) => state.login.user);
   
-	const isAuth = () => {
+  const isAuth = () => {
 		return (
-			Cookies.get('token') === undefined ? false : true
+			(register === '' && login === '') ? false : true
 		);
   };
-  
+
   const PrivateRoute = ({ component: Component, ...rest }) => (
     <Route {...rest} render={props => (
       isAuth() ? (
@@ -31,27 +33,19 @@ const App = () => {
     )} />
   );
 
-  const getUser = () => {
-    return (
-      isAuth()? dispatch(profileFetch()):null
-    )
-  };
-  getUser()
-
   const getPosts = () => {
     dispatch(postsFetch())
   }
   getPosts()
-
   
   return (
     <Switch>
       <Route exact path="/" component={Home}/>
       <Route exact path="/register" >
-        {isAuth() ? <Redirect to="/"/> : <Register/>}
+        {isAuth ()? <Redirect to="/"/> : <Register/>}
       </Route>
-      <Route exact path="/login" component={Log}>
-        {isAuth() ? <Redirect to="/"/> : <Log/>}
+      <Route exact path="/login">
+        {isAuth ()? <Redirect to="/"/> : <Log/>}
       </Route>
       <PrivateRoute path='/profile' >
         <Profile />

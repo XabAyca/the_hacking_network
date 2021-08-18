@@ -14,7 +14,7 @@ const PostsUser = () => {
       dispatch(getUserPostsFetch(userId))
     }
     getUserPosts()
-  }, [userId,dispatch])
+  }, [])
 
   const date = (post) => {
     return (

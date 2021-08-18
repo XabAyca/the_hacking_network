@@ -26,6 +26,8 @@
     border-bottom: 1px solid var(--secondary-color);
     padding-left: 20px;
 
+
+
     &::placeholder{
       color:var(--third-color);
     }
@@ -34,6 +36,9 @@
       height: 300px;
       text-align: start;
     }
+  }
+  textarea{
+    padding-top: 20px ;
   }
 
 

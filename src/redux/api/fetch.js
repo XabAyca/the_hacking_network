@@ -43,7 +43,7 @@ export const logout = () => {
     dispatch(fetchRegisterUnregister())
     dispatch(fetchLoginLogout())
   }
-}
+};
 
 export const loginFetch = (username, password) => {
   const data = {
@@ -67,7 +67,7 @@ export const loginFetch = (username, password) => {
           Cookies.set('token', response.jwt)
           dispatch(fetchLoginSuccess(response.user))
           dispatch(fetchRegisterSuccess(response.user))
-        }
+        };
       })
   }
 }

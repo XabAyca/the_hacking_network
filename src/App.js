@@ -1,6 +1,4 @@
-
-import Cookies from 'js-cookie';
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Home from './pages/Home';
@@ -9,7 +7,7 @@ import NotFound from './pages/NotFound';
 import Profile from './pages/Profile';
 import Register from './pages/Register';
 import User from './pages/User';
-import { postsFetch, profileFetch } from './redux/api/fetch';
+import { postsFetch } from './redux/api/fetch';
 import './styles/index.scss'
 
 const App = () => {

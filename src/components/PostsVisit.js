@@ -17,7 +17,7 @@ const PostsVisit = () => {
   return (
     <div className="posts-visit">
       {
-        posts && posts.map((post) => {
+        posts && posts.splice(0,5).map((post) => {
           return (
             <div key={post.id}>
               <div className='post-visit'>

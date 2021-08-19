@@ -9,6 +9,7 @@ import { createPostReducer } from "./createPost/createPostReducer";
 import { deletePostReducer } from "./deletePost/deletePostReducer";
 import { userProfileReducer } from "./userProfile/userprofileReducer";
 import { getUserPostsReducer } from "./getUserPosts/getUserPostsReducer";
+import { likeReducer } from "./like/likeReducer";
 
 const rootReducers = combineReducers({
   register: registerReducer,
@@ -19,7 +20,8 @@ const rootReducers = combineReducers({
   createPost: createPostReducer,
   deletedPost: deletePostReducer,
   userProfile: userProfileReducer,
-  userPosts:getUserPostsReducer
+  userPosts: getUserPostsReducer,
+  likedPost:likeReducer
 });
 
 export  const store = createStore(

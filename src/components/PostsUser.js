@@ -7,7 +7,8 @@ const PostsUser = () => {
   const {userId} =useParams()
   const dispatch = useDispatch()
   const posts = useSelector((state) => state.userPosts.userPosts)
-  const profile = useSelector((state) => state.profile.profile) 
+  const profile = useSelector((state) => state.profile.profile)
+
 
   useEffect(() => {
     const getUserPosts = () => {
@@ -40,7 +41,8 @@ const PostsUser = () => {
         posts && posts.map((post) => {
           return (
             <div key={post.id}>
-              <div  className='post-visit'>
+              <div className='post-auth'>
+                <span  className='like'>{post.like}&nbsp;<i className="far fa-thumbs-up" ></i></span>
                 <div className='post-title'>
                   <i className="fab fa-hackerrank"></i>
                   <p className='.post-text'><span className='username'>{post.user.username} : </span>{post.text}</p>

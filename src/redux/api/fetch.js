@@ -2,6 +2,7 @@ import Cookies from "js-cookie";
 import { fetchCreatePostFailure, fetchCreatePostRequest, fetchCreatePostSuccess } from "../createPost/createPostActions";
 import { fetchDeletePostFailure, fetchDeletePostRequest } from "../deletePost/deletePostActions";
 import { fetchGetUserPostsFailure, fetchGetUserPostsRequest, fetchGetUserPostsSuccess } from "../getUserPosts/getUserPostsActions";
+import { fetchLikeFailure, fetchLikeRequest, fetchLikeSuccess } from "../like/likeActions";
 import { fetchLoginFailure, fetchLoginLogout, fetchLoginRequest, fetchLoginSuccess } from "../login/loginActions";
 import { fetchPostsFailure, fetchPostsRequest, fetchPostsSuccess } from "../posts/postsActions";
 import { fetchProfileDelete, fetchProfileFailure, fetchProfileRequest, fetchProfileSuccess } from "../profile/profileActions";
@@ -183,7 +184,6 @@ export const deletePostFetch = (id) => {
         if (response.error) {
           dispatch(fetchDeletePostFailure(response.error))
         } else {
-          console.log((response));
           dispatch(fetchCreatePostSuccess(response))
         }
       })
@@ -231,5 +231,30 @@ export const getUserPostsFetch = (id) => {
         }
       }
     )
+  }
+};
+
+export const likePostFetch = (like, id) => {
+  const data = {
+    like: like
+  }
+  return (dispatch) => {
+    dispatch(fetchLikeRequest());
+    fetch(`http://localhost:1337/posts/${id}`, {
+      method: 'put',
+      headers: {
+        'Authorization': `Bearer ${Cookies.get('token')}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        if (response.error) {
+          dispatch(fetchLikeFailure(response.error))
+        } else {
+          dispatch(fetchLikeSuccess(response))
+        }
+      })
   }
 };

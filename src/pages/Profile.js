@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../components/Navbar';
 import { profileFetch, updateProfileFetch } from '../redux/api/fetch';
 import { useHistory } from "react-router-dom";
-import Cookies from 'js-cookie';
 
 const Profile = () => {
  

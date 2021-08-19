@@ -25,7 +25,7 @@ const User = () => {
       {
 
       }
-      <h2>{userProfile && userProfile.username}</h2>
+      <h2>{userProfile && userProfile.username.toUpperCase()}</h2>
       <h3>{userProfile && userProfile.email}</h3>
       <p>{userProfile.description ? userProfile.description: "No description ..."}</p>
       <PostsUser/>

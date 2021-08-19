@@ -1,13 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { deletePostFetch, postsFetch } from '../redux/api/fetch';
+import { deletePostFetch, likePostFetch, postsFetch } from '../redux/api/fetch';
 
 const PostsAuth = () => {
   const posts = useSelector((state) => state.posts.posts)
   const profile = useSelector((state) => state.profile.profile)
   const dispatch = useDispatch()
-  const history=useHistory()
+  const history = useHistory()
+  const [isLiked, setIsLiked] = useState(new Set());
 
   const date = (post) => {
     return (
@@ -29,7 +30,26 @@ const PostsAuth = () => {
 
   const goToUser = (id, username) => {
     history.push(`/user/${id}`);
-  }
+  };
+
+  const like = (like, id, e) => {
+    e.preventDefault();
+    if (isLiked.has(id)) {
+      like--;
+      e.target.style.color = '#0B7A75';
+      let temp = isLiked
+      temp.delete(id)
+      setIsLiked(temp);
+    } else {
+      like++
+      e.target.style.color = '#3BB273';
+      setIsLiked(isLiked.add(id))
+    }
+    dispatch(likePostFetch(like, id))
+    setTimeout(() => {
+      dispatch(postsFetch())
+    }, 100)
+  };
   
 
   return (
@@ -39,7 +59,7 @@ const PostsAuth = () => {
           return (
             <div key={post.id}>
               <div className='post-auth'>
-                <span className='like'>{post.like}&nbsp;<i class="far fa-thumbs-up"></i></span>
+                <span  className='like'>{post.like}&nbsp;<i onClick={(e)=>like(post.like,post.id,e)} className="far fa-thumbs-up" ></i></span>
                 <div className='post-title'>
                   <i className="fab fa-hackerrank"></i>
                   <p className='.post-text'><span className='username' onClick={() =>goToUser(post.user.id,post.user.username) }>{post.user.username} : </span>{post.text}</p>

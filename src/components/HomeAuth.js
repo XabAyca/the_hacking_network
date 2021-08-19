@@ -6,7 +6,6 @@ import PostsAuth from './PostsAuth';
 const HomeAuth = () => {
   const profile = useSelector((state) => state.profile);
   const dispatch = useDispatch()
-  console.log(profile.profile.id);
 
   const createPost = (e) => {
     e.preventDefault();

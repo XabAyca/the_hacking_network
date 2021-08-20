@@ -4,7 +4,7 @@ import { AppInstall } from './AppInstall';
 const InstallApp = () => {
   const {install}= useContext(AppInstall)
   const exit = () => {
-    document.querySelector('.install-app').style.display = 'none';
+    document.querySelector('.install-app').style.opacity = '0';
   }
   return (
     <span className='install-app'>

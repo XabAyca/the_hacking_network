@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPostFetch, postsFetch } from '../redux/api/fetch';
+import { AppInstall } from './AppInstall';
 import PostsAuth from './PostsAuth';
 
 const HomeAuth = () => {
   const profile = useSelector((state) => state.profile);
   const dispatch = useDispatch()
+  const {count}= useContext(AppInstall)
 
   const createPost = (e) => {
     e.preventDefault();
+    count();
     let text = document.querySelector('.input-home').value;
     document.querySelector('.input-home').value = '';
     let user = profile.profile.id

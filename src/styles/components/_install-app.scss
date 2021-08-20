@@ -1,0 +1,54 @@
+.install-app{
+  position:fixed;
+  background:var(--primary-color);
+  bottom:10px;
+  left:10px;
+  width: 50%;
+  height: 10%;
+  display: flex;
+  border-radius: 5px;
+  z-index: 1000;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  transition: all 1s;
+  opacity: 0;
+
+  .fa-times{
+    position: absolute;
+    top:5px;
+    right: 5px;
+    cursor: pointer;
+    color:var(--third-color);
+    &:hover{
+      color: white;
+     } 
+  }
+  p{
+    color:var(--third-color);
+    font-size: 1.2rem;
+  }
+
+  .install-logo{
+    display: flex;
+    align-items: center;
+    .fa-download{
+      color:var(--third-color);
+      font-size: 2rem;
+      margin-right: 15px;
+      cursor: pointer;
+      &:hover{
+      color: white;
+      }
+    }
+    p{
+    color:var(--third-color);
+    font-size: 1.2rem;
+    transition: 0.5s;
+    &:hover{
+      color: white;
+    }
+    }
+  }
+}
